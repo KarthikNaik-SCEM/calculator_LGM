@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="calculator">
+		<input class="calculator-screen" type="text" disabled>
+		<div class="calculator-keys">
+			<!-- <div style="display:flex; justify-content: space-between;"> -->
+			<button class="key clear" onclick="clearScreen()">AC</button>
+			<button class="key operator" onclick="addOperator('/')">/</button>
+			<button class="key operator" onclick="addOperator('*')">*</button>
+			<button class="key operator" onclick="addOperator('-')">-</button>
+			</div>
+			<div style="display:flex; justify-content: space-between;">
+			<button class="key" onclick="addNumber(7)">7</button>
+			<button class="key" onclick="addNumber(8)">8</button>
+			<button class="key" onclick="addNumber(9)">9</button>
+			<button class="key operator" onclick="addOperator('+')">+</button>
+			</div>
+
+			<div style="display:flex; justify-content: space-between;">
+			<button class="key" onclick="addNumber(4)">4</button>
+			<button class="key" onclick="addNumber(5)">5</button>
+			<button class="key" onclick="addNumber(6)">6</button>
+			<button class="key" onclick="addNumber('.')">.</button>
+			</div>
+
+			<div style="display:flex; justify-content: space-between;">
+			<button class="key" onclick="addNumber(0)">0</button>
+			<button class="key" onclick="addNumber(1)">1</button>
+			<button class="key" onclick="addNumber(2)">2</button>
+			<button class="key" onclick="addNumber(3)">3</button>
+			</div>
+			<div style="display:flex; justify-content: space-between;">
+		<button class="key equal" onclick="calculate()">=</button>
+			</div>
+	</div>
+	</div>
+	<script>
+		//javascript
+
+let calculation = '';
+
+function addNumber(number) {
+	calculation += number;
+	updateScreen(calculation);
+}
+
+function addOperator(operator) {
+	calculation += operator;
+	updateScreen(calculation);
+}
+
+function calculate() {
+	let result = eval(calculation);
+	updateScreen(result);
+}
+
+function clearScreen() {
+	calculation = '';
+	updateScreen(calculation);
+}
+
+function updateScreen(display) {
+	document.querySelector('.calculator-screen').value = display;
+}
+
+	</script>
+</body>
+</html>
+
+
+
